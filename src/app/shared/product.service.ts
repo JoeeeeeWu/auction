@@ -21,6 +21,10 @@ export class ProductService {
 
   constructor() { }
 
+  getAllCategory(): Array<string> {
+    return ["电子产品", "硬件设备", "图书"];
+  }
+
   getProducts(): Array<Product> {
     return this.products;
   }
