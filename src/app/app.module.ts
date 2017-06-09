@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { CarouselComponent } from './carousel/carousel.component';
@@ -14,6 +15,7 @@ import { StarsComponent } from './stars/stars.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { HomeComponent } from './home/home.component';
 import { ProductService } from './shared/product.service';
+import { WebSocketService } from './shared/web-socket.service';
 import { FilterPipe } from './pipe/filter.pipe';
 
 
@@ -42,9 +44,13 @@ const routeConfig: Routes = [{
     BrowserModule,
     RouterModule.forRoot(routeConfig),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
-  providers: [ProductService],
+  providers: [
+    ProductService,
+    WebSocketService,
+  ],
   bootstrap: [AppComponent]
 })
 
